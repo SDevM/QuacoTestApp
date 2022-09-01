@@ -1,0 +1,7 @@
+{
+  "name": "QuacoTestApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
