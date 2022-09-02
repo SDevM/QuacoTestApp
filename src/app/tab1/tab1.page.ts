@@ -121,7 +121,6 @@ export class Tab1Page implements AfterViewInit {
               lng: resp.coords.longitude,
             },
             zoom: 15,
-            disableDefaultUI: true,
           });
         })
         .catch((err) => {

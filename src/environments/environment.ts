@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://quaco-api.herokuapp.com/api/v1',
+  apiUrl: 'http://10.44.16.43:8080/api/v1',
 };
 
 /*
