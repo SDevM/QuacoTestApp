@@ -24,27 +24,26 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    // let obs = new Observable<boolean>((observer) => {
-    //   this.userService.updateUser(null).subscribe({
-    //     next: (data) => {
-    //       if (data) {
-    //         observer.next(true);
-    //         observer.complete();
-    //       } else {
-    //         this.router.navigate(['/tabs/tab2']);
-    //         observer.next(false);
-    //         observer.complete();
-    //       }
-    //     },
-    //     error: (err) => {
-    //       this.router.navigate(['/tabs/tab2']);
-    //       observer.next(false);
-    //       observer.complete();
-    //     },
-    //   });
-    // });
+    let obs = new Observable<boolean>((observer) => {
+      this.userService.session().subscribe({
+        next: (data) => {
+          if (data) {
+            observer.next(true);
+            observer.complete();
+          } else {
+            this.router.navigate(['/tabs/tab2']);
+            observer.next(false);
+            observer.complete();
+          }
+        },
+        error: (err) => {
+          this.router.navigate(['/tabs/tab2']);
+          observer.next(false);
+          observer.complete();
+        },
+      });
+    });
 
-    // return obs;
-    return !(!this.userService.user)
+    return obs;
   }
 }

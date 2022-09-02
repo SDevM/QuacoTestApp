@@ -20,6 +20,20 @@ export class UsersService {
   constructor(private http: HttpClient) {}
 
   /**
+   * Http request for resuming a logged in session
+   * @returns Observable
+   */
+  session() {
+    let obs = new Observable((observer) => {
+      this.http
+        .get(environment.apiUrl + '/users', { observe: 'response' })
+        .subscribe(GenericSubscribe(observer));
+    });
+
+    return obs;
+  }
+
+  /**
    * Http request for creating a new user login
    * @param user New user information
    * @returns Observable
