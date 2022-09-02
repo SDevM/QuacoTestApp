@@ -15,7 +15,7 @@
     "build:apk": "ionic cordova build android --prod",
     "build:deploy": "npm run build:platform && npm run apk",
     "studio": "start studio.bat",
-    "studio:prepare": "ionic cordova prepare android",
+    "studio:prepare": "ionic cordova prepare android --prod",
     "studio:launch": "npm run studio:prepare && npm run studio"
   },
   "private": true,

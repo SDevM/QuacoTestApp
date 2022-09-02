@@ -97,21 +97,22 @@ export class Tab1Page implements AfterViewInit {
           })
           .then((resp) => {
             this.user.address = resp.results[0].formatted_address;
+            this.latitude = place.geometry.location.lat();
+            this.longitude = place.geometry.location.lng();
+            // Function that sets marker on the map
+            this.setPosition({ lat: this.latitude, lng: this.longitude });
           });
-
-        this.latitude = place.geometry.location.lat();
-        this.longitude = place.geometry.location.lng();
-        // Function that sets marker on the map
-        this.setPosition({ lat: this.latitude, lng: this.longitude });
       });
     });
 
     // Checks if the app is running on android
     if (this.platform.is('android')) {
+      console.log('Hit!');
       //Use geolocation cordova plugin to get current position of device
       this.geolocation
         .getCurrentPosition()
         .then((resp) => {
+          console.log('Valid geolocale');
           this.latitude = resp.coords.latitude;
           this.longitude = resp.coords.longitude;
           // Initialize the map using the div element and these options
