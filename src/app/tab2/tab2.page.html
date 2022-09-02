@@ -1,17 +1,63 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title> Log In </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Log In</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <br />
+  <form #form="ngForm" style="max-width: 400px">
+    <h2 class="visually-hidden">Login Form</h2>
+    <div class="illustration">
+      <i
+        class="icon ion-ios-locked-outline"
+        style="color: var(--bs-success)"
+      ></i>
+    </div>
+    <div class="mb-3">
+      <input
+        class="form-control"
+        type="email"
+        name="email"
+        placeholder="Email"
+        [(ngModel)]="user.email"
+        required=""
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        class="form-control"
+        type="password"
+        name="password"
+        placeholder="Password"
+        [(ngModel)]="user.password"
+        required=""
+      />
+    </div>
+    <div class="mb-3">
+      <button
+        class="btn btn-primary d-block w-100"
+        type="submit"
+        style="background: var(--bs-success)"
+        (click)="form.valid && submit()"
+      >
+        Log In
+      </button>
+    </div>
+    <div class="mb-3">
+      <button
+        class="btn btn-primary d-block w-100"
+        type="submit"
+        routerLink="../tab1"
+        style="background: var(--bs-success)"
+      >
+        Create an Account
+      </button>
+    </div>
+  </form>
 </ion-content>

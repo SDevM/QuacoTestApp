@@ -1,17 +1,118 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title> Sign Up </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Sign Up</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <br />
+  <br />
+  <form #form="ngForm" style="max-width: 400px">
+    <h2 class="visually-hidden">Login Form</h2>
+    <div class="illustration">
+      <i class="icon ion-key" style="color: var(--bs-success)"></i>
+    </div>
+    <div class="mb-3">
+      <select
+        class="form-control"
+        type="text"
+        name="name"
+        [(ngModel)]="user.title"
+        required=""
+      >
+        <option selected disabled [value]="undefined">Select a Title</option>
+        <option *ngFor="let title of titles" [value]="title._id">
+          {{title.title}}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Name"
+        name="title"
+        [(ngModel)]="user.name"
+        required=""
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        class="form-control"
+        type="text"
+        name="surname"
+        placeholder="Surname"
+        [(ngModel)]="user.surname"
+        required=""
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        class="form-control"
+        type="email"
+        name="email"
+        placeholder="Email"
+        [(ngModel)]="user.email"
+        required=""
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        class="form-control"
+        type="text"
+        name="username"
+        placeholder="Username"
+        [(ngModel)]="user.username"
+        required=""
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        #autocomplete
+        class="form-control"
+        type="text"
+        name="address"
+        [value]="user.address ?? ''"
+        placeholder="Address"
+        required=""
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        class="form-control"
+        type="password"
+        name="password"
+        placeholder="Password"
+        [(ngModel)]="user.password"
+        required=""
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        class="form-control"
+        type="password"
+        name="confirm_password"
+        placeholder="Re-Enter Password"
+        [pattern]="form.form.controls['password']?.value"
+        ngModel
+        required=""
+      />
+    </div>
+    <div class="mb-3">
+      <button
+        class="btn btn-primary d-block w-100"
+        type="submit"
+        style="background: var(--bs-success)"
+        (click)="form.valid && user.address ? submit() : alert('Form incomplete!')"
+      >
+        Sign up
+      </button>
+    </div>
+  </form>
+  <div #map class="full"></div>
 </ion-content>

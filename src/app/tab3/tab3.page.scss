@@ -1,0 +1,27 @@
+ion-content {
+  --offset-bottom: auto !important;
+  --overflow: hidden;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.full {
+  width: 100vw;
+  height: 77vh;
+  margin-inline: auto;
+  z-index: 0;
+}
+
+.float_mid {
+  position: fixed;
+  top: 30%;
+  left: 0;
+  z-index: 1;
+}
+
+ion-chip {
+  --background: #0008;
+  --color: white;
+}

@@ -13,7 +13,7 @@
     "lab": "ionic serve -o --lab",
     "build:platform": "ionic cordova platform add android@11.0.0",
     "build:apk": "ionic cordova build android",
-    "build:deploy": "npm run platform && npm run apk",
+    "build:deploy": "npm run build:platform && npm run apk",
     "studio": "start studio.bat",
     "studio:prepare": "ionic cordova prepare android",
     "studio:launch": "npm run studio:prepare && npm run studio"
@@ -23,11 +23,18 @@
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0",
     "@angular/forms": "^14.0.0",
+    "@angular/google-maps": "^14.2.0",
+    "@angular/localize": "^14.0.0",
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "@awesome-cordova-plugins/core": "^5.44.0",
+    "@awesome-cordova-plugins/geolocation": "^5.44.0",
     "@ionic/angular": "^6.1.9",
     "@ionic/cordova-builders": "^7.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^13.0.0",
+    "@popperjs/core": "^2.10.2",
+    "bootstrap": "^5.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
@@ -43,6 +50,7 @@
     "@angular/compiler-cli": "^14.0.0",
     "@angular/language-service": "^14.0.0",
     "@ionic/angular-toolkit": "^6.0.0",
+    "@ionic/lab": "3.2.13",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
@@ -50,6 +58,7 @@
     "@typescript-eslint/parser": "5.3.0",
     "cordova-android": "^11.0.0",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-geolocation": "^4.1.0",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^5.0.0",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -77,7 +86,10 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-geolocation": {
+        "GPS_REQUIRED": "true"
+      }
     },
     "platforms": [
       "android"
